@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Analytics from "../components/Analytics.astro";
 
 interface Props {
   title: string;
@@ -24,6 +25,8 @@ const {
     name="description"
     content={description}
   />
+
+    <Analytics />
 
   <link
     rel="icon"
