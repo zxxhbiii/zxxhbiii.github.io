@@ -1,41 +1,29 @@
 ---
-const siteTitle = "DevPrompt";
-const siteDescription =
-  "Learn AI tools, frontend development, and SEO through practical guides.";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<Layout
+title="Zxx AI Blog"
+description="记录 AI、SEO、Web 开发学习过程"
+>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<h1 class="text-5xl font-bold mb-6">
+Zxx AI Blog
+</h1>
 
-    <title>{siteTitle}</title>
+<p class="text-xl mb-12">
+AI · SEO · Web Development
+</p>
 
-    <meta
-      name="description"
-      content={siteDescription}
-    />
+<section>
 
-    <link rel="icon" href="/favicon.ico" />
+<h2 class="text-2xl font-semibold mb-4">
+关于这个博客
+</h2>
 
-    <meta name="generator" content={Astro.generator} />
-  </head>
+<p>
+这里记录我学习 SEO、人工智能、Web 开发以及互联网技术的过程。
+</p>
 
-<body>
-  <main>
-    <h1>DevPrompt</h1>
-
-    <p>
-      Learn AI tools, Frontend Development and SEO through practical tutorials.
-    </p>
-
-    <nav>
-      <a href="/">Home</a> |
-      <a href="/blog">Blog</a> |
-      <a href="/about">About</a>
-    </nav>
-  </main>
-</body>
-
-</html>
+</section>
+</Layout>

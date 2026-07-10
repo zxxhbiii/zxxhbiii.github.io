@@ -1,0 +1,57 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+
+  return posts.map((post) => ({
+    params: {
+      slug: post.id,
+    },
+    props: {
+      post,
+    },
+  }));
+}
+
+const { post } = Astro.props;
+
+const { Content } = await render(post);
+---
+
+<Layout
+title={post.data.title}
+description={post.data.description}
+>
+
+<a
+href="/blog"
+class="text-blue-600 hover:underline"
+>
+← 返回博客列表
+</a>
+
+<h1 class="text-4xl font-bold mt-6 mb-4">
+
+{post.data.title}
+
+</h1>
+
+<div class="text-gray-500 mb-8">
+
+{post.data.date}
+
+&nbsp;·&nbsp;
+
+{post.data.tags.join(" / ")}
+
+</div>
+
+<article class="prose max-w-none">
+
+<Content />
+
+</article>
+
+</Layout>
