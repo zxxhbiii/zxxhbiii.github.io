@@ -1,90 +1,17 @@
 ---
-import "../styles/global.css";
-import Analytics from "../components/Analytics.astro";
-
-interface Props {
-  title: string;
-  description?: string;
-}
-
-const {
-  title,
-  description = "记录 AI、SEO、Web 开发学习过程",
-} = Astro.props;
+const GA_ID = "G-VJMDT54BEZ";
 ---
 
-<!doctype html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
 
-  <title>{title}</title>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
 
-  <meta
-    name="description"
-    content={description}
-  />
+  function gtag() {
+    window.dataLayer.push(arguments);
+  }
 
-    <Analytics />
+  gtag('js', new Date());
 
-  <link
-    rel="icon"
-    href="/favicon.svg"
-  />
-</head>
-
-<body class="min-h-screen bg-gray-50 text-gray-900">
-
-<header class="border-b bg-white">
-
-<div class="max-w-5xl mx-auto flex justify-between items-center px-6 py-4">
-
-<a
-href="/"
-class="text-2xl font-bold"
->
-Zxx AI Blog
-</a>
-
-<nav class="space-x-6">
-
-<a
-href="/"
-class="hover:text-blue-600"
->
-首页
-</a>
-
-<a
-href="/blog"
-class="hover:text-blue-600"
->
-博客
-</a>
-
-</nav>
-
-</div>
-
-</header>
-
-<main class="max-w-5xl mx-auto px-6 py-10">
-
-<slot />
-
-</main>
-
-<footer class="border-t mt-16">
-
-<div class="max-w-5xl mx-auto px-6 py-6 text-sm text-gray-500">
-
-© 2026 Zxx AI Blog
-
-</div>
-
-</footer>
-
-</body>
-
-</html>
+  gtag('config', 'G-VJMDT54BEZ');
+</script>
