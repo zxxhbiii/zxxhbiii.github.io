@@ -55,6 +55,24 @@ const {
     rel="icon"
     href="/favicon.svg"
   />
+
+
+  <script
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Zxx AI Blog",
+    url: "https://zxxhbiii.github.io",
+    description,
+    inLanguage: "zh-CN",
+    author: {
+      "@type": "Person",
+      name: "刘佐佐"
+    }
+  })}
+/>
+
 </head>
 
 <body class="min-h-screen bg-gray-50 text-gray-900">
