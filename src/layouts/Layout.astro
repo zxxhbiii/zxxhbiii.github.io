@@ -6,18 +6,23 @@ interface Props {
   title: string;
   description?: string;
   canonical?: string;
+  jsonLd?: object;
 }
 
 const {
   title,
   description = "记录 AI、SEO、Web 开发学习过程",
   canonical,
+  jsonLd,
 } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="zh-CN">
 <head>
+
+  <title>{title}</title>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -33,13 +38,20 @@ const {
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content="https://zxxhbiii.github.io/og-image.png" />
 
-  <title>{title}</title>
-
   {
   canonical && (
     <link
       rel="canonical"
       href={canonical}
+    />
+  )
+}
+
+{
+  jsonLd && (
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(jsonLd)}
     />
   )
 }
@@ -56,7 +68,6 @@ const {
     href="/favicon.svg"
   />
 
-
   <script
   type="application/ld+json"
   set:html={JSON.stringify({
@@ -68,7 +79,7 @@ const {
     inLanguage: "zh-CN",
     author: {
       "@type": "Person",
-      name: "刘佐佐"
+      name: "猫和松鼠"
     }
   })}
 />
