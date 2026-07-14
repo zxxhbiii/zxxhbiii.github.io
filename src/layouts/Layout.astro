@@ -5,11 +5,13 @@ import Analytics from "../components/Analytics.astro";
 interface Props {
   title: string;
   description?: string;
+  canonical?: string;
 }
 
 const {
   title,
   description = "记录 AI、SEO、Web 开发学习过程",
+  canonical,
 } = Astro.props;
 ---
 
@@ -19,7 +21,28 @@ const {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Zxx AI Blog" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content="https://zxxhbiii.github.io/og-image.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content="https://zxxhbiii.github.io/og-image.png" />
+
   <title>{title}</title>
+
+  {
+  canonical && (
+    <link
+      rel="canonical"
+      href={canonical}
+    />
+  )
+}
 
   <meta
     name="description"
