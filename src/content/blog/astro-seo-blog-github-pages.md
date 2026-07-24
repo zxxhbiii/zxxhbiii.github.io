@@ -222,10 +222,12 @@ I created a robots.txt file to provide crawling instructions for search engines 
 
 Example:
 
+```yaml
 User-agent: *
 Allow: /
 
 Sitemap: https://zxxhbiii.github.io/sitemap-index.xml
+```
 
 ### RSS Feed
 
