@@ -1,12 +1,14 @@
 ---
 import "../styles/global.css";
 import Analytics from "../components/Analytics.astro";
+import type { object } from "astro:schema";
 
 interface Props {
   title: string;
   description?: string;
   canonical?: string;
-  jsonLd?: object;
+  jsonLd?: object[];
+  faq?: object;
 }
 
 const {
@@ -14,6 +16,7 @@ const {
   description = "记录 AI、SEO、Web 开发学习过程",
   canonical,
   jsonLd,
+  faq,
 } = Astro.props;
 ---
 
@@ -55,12 +58,12 @@ const {
 }
 
 {
-  jsonLd && (
+  jsonLd?.map((schema) => (
     <script
       type="application/ld+json"
-      set:html={JSON.stringify(jsonLd)}
+      set:html={JSON.stringify(schema)}
     />
-  )
+  ))
 }
 
   <meta
@@ -143,6 +146,15 @@ class="hover:text-blue-600"
 </div>
 
 </footer>
+
+{
+faq && (
+<script
+type="application/ld+json"
+set:html={JSON.stringify(faq)}
+/>
+)
+}
 
 </body>
 

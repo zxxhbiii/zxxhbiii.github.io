@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { getCollection, render } from "astro:content";
+import { slugify } from "../../utils/slugify";
 
 const allPosts = (await getCollection("blog")).sort(
   (a, b) =>
@@ -34,32 +35,57 @@ const {
 } = Astro.props;
 
 const { Content } = await render(post);
+
+const schemas = [];
+
+// BlogPosting Schema
+schemas.push({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.date,
+  author: {
+    "@type": "Person",
+    name: "Cat Squirrel",
+  },
+  publisher: {
+    "@type": "Person",
+    name: "Cat Squirrel",
+  },
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": `https://zxxhbiii.github.io/blog/${post.id}/`,
+  },
+});
+
+
+// FAQ Schema
+if (post.data.faq) {
+
+  schemas.push({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: post.data.faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  });
+
+}
 ---
 
 <Layout
   title={post.data.title}
   description={post.data.description}
   canonical={`https://zxxhbiii.github.io/blog/${post.id}/`}
-  jsonLd={{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: post.data.title,
-    description: post.data.description,
-    datePublished: post.data.date,
-    author: {
-      "@type": "Person",
-      name: "猫和松鼠",
-    },
-    publisher: {
-      "@type": "Person",
-      name: "猫和松鼠",
-    },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `https://zxxhbiii.github.io/blog/${post.id}/`,
-    },
-  }}
+  jsonLd={schemas}
 >
+
 
 <a
 href="/blog"
@@ -85,7 +111,7 @@ class="text-blue-600 hover:underline"
 {
   post.data.tags.map((tag) => (
     <a
-      href={`/tags/${tag.toLowerCase()}/`}
+      href={`/tags/${slugify(tag)}/`}
       class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 hover:bg-blue-200"
     >
       {tag}

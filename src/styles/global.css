@@ -1,1 +1,106 @@
 @import "tailwindcss";
+
+.prose h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+
+.prose h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 3rem;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+}
+
+
+.prose h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+
+.prose p {
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+}
+
+
+.prose ul {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+
+.prose li {
+  margin-bottom: 0.5rem;
+}
+
+
+.prose code {
+  background: #f3f4f6;
+  padding: 0.2rem 0.4rem;
+  border-radius: 5px;
+}
+
+
+.prose pre {
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 1.2rem 1.5rem;
+  border-radius: 12px;
+  overflow-x: auto;
+  margin: 2rem 0;
+  line-height: 1.7;
+}
+
+
+/* 代码块里面的文字 */
+.prose pre code {
+  background: transparent;
+  color: #e2e8f0;
+  padding: 0;
+  font-size: 0.95rem;
+}
+
+
+/* 行内代码 */
+.prose code {
+  background: #f1f5f9;
+  color: #2563eb;
+  padding: 0.2rem 0.4rem;
+  border-radius: 5px;
+}
+
+.faq h3 {
+
+padding: 1rem;
+
+background:#f8fafc;
+
+border-left:4px solid #2563eb;
+
+border-radius:8px;
+
+margin-top:2rem;
+
+}
+
+
+.faq h3 + p {
+
+padding:1rem;
+
+border:1px solid #e5e7eb;
+
+border-radius:8px;
+
+margin-bottom:2rem;
+
+}

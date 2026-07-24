@@ -1,15 +1,18 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
+import { slugify } from "../../utils/slugify";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
 
-  const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
+  const tags = [
+    ...new Set(posts.flatMap((post) => post.data.tags))
+  ];
 
   return tags.map((tag) => ({
     params: {
-      tag: tag.toLowerCase(),
+      tag: slugify(tag),
     },
     props: {
       tag,
@@ -21,12 +24,14 @@ export async function getStaticPaths() {
 }
 
 const { tag, posts } = Astro.props;
+
+const tagSlug = slugify(tag);
 ---
 
 <Layout
   title={`${tag} | Zxx AI Blog`}
   description={`${tag} 相关文章`}
-  canonical={`https://zxxhbiii.github.io/tags/${tag.toLowerCase()}/`}
+  canonical={`https://zxxhbiii.github.io/tags/${tagSlug}/`}
 >
 
 <h1 class="text-4xl font-bold mb-4">
