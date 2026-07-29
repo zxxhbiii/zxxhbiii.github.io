@@ -31,6 +31,17 @@
   margin-bottom: 1.2rem;
 }
 
+.prose a {
+  color: #2563eb;
+  text-decoration-line: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.prose a:hover {
+  color: #1e40af;
+}
+
 
 .prose ul {
   margin-top: 1rem;
@@ -81,26 +92,17 @@
 .faq h3 {
 
 padding: 1rem;
-
 background:#f8fafc;
-
 border-left:4px solid #2563eb;
-
 border-radius:8px;
-
 margin-top:2rem;
-
 }
 
 
 .faq h3 + p {
-
 padding:1rem;
-
 border:1px solid #e5e7eb;
-
 border-radius:8px;
-
 margin-bottom:2rem;
-
 }
+
