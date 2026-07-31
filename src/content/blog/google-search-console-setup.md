@@ -290,35 +290,29 @@ Possible reasons:
 - Too many low-value pages
 - Weak website signals
 
----
+<div class="faq">
 
-# Frequently Asked Questions
+## Frequently Asked Questions
 
-## What is Google Search Console?
+### What is Google Search Console?
 
 Google Search Console is a free tool from Google that helps website owners monitor indexing, search performance, and technical SEO issues.
 
----
-
-## How long does Google Search Console take to index a new website?
+### How long does Google Search Console take to index a new website?
 
 There is no fixed timeline. New websites may take several days to several weeks depending on website quality, authority, and crawl frequency.
 
----
-
-## Does submitting a sitemap guarantee indexing?
+### Does submitting a sitemap guarantee indexing?
 
 No.
-
 A sitemap helps Google discover URLs, but indexing decisions are based on content quality, relevance, and Google's evaluation process.
 
-## Can Google Search Console improve rankings?
+### Can Google Search Console improve rankings?
 
 Google Search Console does not directly improve rankings.
-
 However, it provides SEO data such as search queries, impressions, clicks, and indexing issues, which helps website owners optimize their content and technical SEO strategies.
 
----
+</div>
 
 # Conclusion
 
